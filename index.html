@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8"> 
+	<meta name="robots" content="index">
+	<meta name="keywords" content="javascript, html, css, ethereum, sports">
+	<meta name="author" content="Alexander Schmidt">
+	<meta name="viewport" content="width=device-width, minimum-scale=1">
+	<title>Alexander Schmidt - Mannheim Business School, Frankfurt University of Applied Sciences, Heidelberg University Faculty of Philosophy and History</title>
+	<link rel="icon" href="favicon.ico?v=2" />
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+	<style>
+		a, abbr, acronym, address, applet, big, blockquote, body, caption, cite, code, dd, del, dfn, div, dl, dt, em, fieldset, font, form, h1, h2, h3, h4, h5, h6, html, iframe, img, ins, kbd, label, legend, li, object, ol, p, pre, q, s, samp, small, span, strike, sub, sup, table, tbody, td, tfoot, th, thead, tr, tt, ul, var {
+			margin: 0;
+			padding: 0;
+			border: 0;
+			font-weight: inherit;
+			font-style: inherit;
+			font-size: 100%;
+			font-family: inherit;
+			vertical-align: baseline;
+		}
+		body {
+			background-color: #333;
+			font-family: 'Roboto',Tahoma,Helvetica,Verdana,sans-serif;
+			font-size: 14px;
+			line-height: 1.3;
+			color: #333;
+		}
+		.page-background {
+			position: fixed;
+			height: 100vh;
+			width: 100vw;
+			background-image: url('');
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center center;
+		}
+		.page-container {
+			width: 100%;
+			height: 100%;
+			overflow: visible;
+		}
+		.page-content {
+			display: flex;
+			flex-direction: column;
+			min-height: 100vh;
+		}
+		main {
+			padding-top: 0;
+			display: flex;
+			flex-direction: row;
+			flex-wrap: nowrap;
+			align-items: stretch;
+		}
+		.profile-column {
+			width: 100%;
+			position: relative;
+			flex-grow: 1;
+			flex-shrink: 1;
+		}
+		.profile {
+			min-height: 100vh;
+			line-height: 1.4;
+			padding: 10px;
+			display: flex;
+			justify-content: center;
+			flex-direction: row;
+			align-items: center;
+			box-sizing: border-box;
+			min-width: 320px;
+			position: relative;
+		}
+		.profile-content {
+			width: 620px;
+			max-width: calc(100vw - 10px);
+			text-align: center;
+			background-color: rgba(255,255,255,0.8);
+			border-radius: 4px;
+			margin-top: 60px;
+		}
+		.profile-content .head .image {
+			background-image: url(alexanderschmidt_240x240.jpg);
+			background-size: cover;
+			border-radius: 50%;
+			background-repeat: no-repeat;
+			background-position: center center;
+			box-shadow: inset 0 0 10px 0 rgba(0,0,0,.2),0 0 2px 0 rgba(0,0,0,.1);
+			margin: 0 auto;
+			margin-top: -60px;
+			margin-bottom: 20px;
+			width: 120px;
+			height: 120px;
+		}
+		.profile-content .head .name {
+			font-size: 20px;
+			line-height: 1.2;
+			text-transform: uppercase;
+			letter-spacing: 2px;
+			font-weight: 700;
+			margin: 0;
+			color: #333;
+		}
+		.profile-content .head .headline {
+			font-size: 16px;
+			line-height: 1.2;
+			font-weight: 700;
+			margin: 0;
+		}
+		.profile-content .body {
+			padding: 20px;
+		}
+		.profile-content .body .spotlight {
+			max-width: 400px;
+			width: 100%;
+			margin: 0 auto;
+		}
+		.profile-content .body .spotlight .button {
+			background-color: #333;
+			box-shadow: inset 0 0 0 100px hsla(0,0%,100%,0);
+			min-width: 100%;
+			font-size: 15px;
+			transition: all .15s ease-out;
+			line-height: 38px;
+			padding: 0 20px;
+			text-decoration: none !important;
+			display: inline-block;
+			text-align: center;
+			border-radius: 5px;
+			cursor: pointer;
+			box-sizing: border-box;
+			white-space: nowrap;
+			user-select: none;
+			font-size: 14px;
+			border: 1px solid #333;
+			color: #fff;
+			transition: all .15s ease-out;
+		}
+		.profile-content .body .bio {
+			font-size: 16px;
+			max-width: 400px;
+			width: 100%;
+			margin: 20px auto 0;
+			text-align: left;
+			word-wrap: break-word;
+		}
+		.profile-content .body .interests {
+			margin-top: 20px;
+		}
+		.profile-content .body .interests .inline li {
+			padding: 0;
+			margin: 5px;
+			color: #777;
+		}
+		.profile-content .body .meta {
+			margin-top: 20px;
+		}
+		.profile-content .body .meta .meta-sections {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			max-width: 400px;
+			margin: 0 auto;
+			font-size: 14px;
+			list-style: none;
+		}
+		.profile-content .body .meta .meta-sections .meta-header {
+			font-size: 12px;
+			font-weight: 700;
+			text-transform: uppercase;
+			margin-bottom: 0;
+		}
+		.profile-content .body .meta .meta-sections .meta-list {
+			list-style: none;
+		}
+		.profile-content .body .meta .meta-sections .meta-list li {
+			display: block;
+			margin-top: .25em;
+		}
+		.profile-content .body .social-links {
+			margin-top: 20px;
+		}
+		.profile-content .body .social-links li {
+			color: rgba(54,71,78,.7);
+			font-size: 30px;
+			box-sizing: border-box;
+			text-align: center;
+			padding: 0;
+			margin: 10px;
+			width: 36px;
+			height: 36px;
+			line-height: 36px;
+			cursor: pointer;
+			display: block;
+		}
+		.profile-content .body .social-links li:first-child {
+			border: 2px solid #333;
+			border-radius: 18px;
+			font-size: 20px;
+			box-sizing: border-box;
+			text-align: center;
+		}
+		.profile-content .body .social-links li svg {
+			fill: #333;
+		}
+		.profile-content .body .social-links li:first-child svg {
+			width: 20px;
+			height: 21px;
+		}
+		.profile-content .body .inline {
+			padding: 0;
+			margin: 0;
+			list-style: none;
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+		.profile-content .body .inline > li {
+			vertical-align: baseline;
+			display: inline-block;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="page-background" id="particles"></div>
+	<div class="page-container">
+		<div class="page-content">
+			<main>
+				<div class="profile-column">
+					<div class="profile-container">
+						<div class="profile">
+							<div class="profile-content">
+
+								<div class="head">
+									<div class="image"></div>
+									<div class="name-headline">
+										<section>
+											<h1 class="name">Alexander Schmidt</h1>
+										</section>
+										<section>
+											<h2 class="headline">
+												<span class="roles">
+													<span class="role">Frontend Engineer</span>
+												</span>
+											</h2>
+										</section>
+									</div>
+								</div>
+
+								<div class="body">
+									<section class="spotlight">
+										<a href="http://xing.to/alexanderschmidt" target="_blank" rel="noopener noreferrer" class="button">View my vita</a>
+									</section>
+									<section class="bio">
+										<div>
+											<p>Hey there, I'm Alexander. I'm a Frontend Engineer living in Frankfurt, Germany and a fan of Javascript, HTML and CSS. I'm also interested in Ethereum and doing sports. You can view my vita with a click on the button above.</p>
+										</div>
+									</section>
+									<section class="interests">
+										<ul class="inline">
+											<li class="interest">#javascript</li>
+											<li class="interest">#html</li>
+											<li class="interest">#css</li>
+											<li class="interest">#ethereum</li>
+											<li class="interest">#sports</li>
+										</ul>
+									</section>
+									<section class="meta">
+										<ul class="meta-sections">
+											<li class="meta-section schools">
+												<div class="meta-header">Education</div>
+												<ul class="meta-list">
+													<li class="meta-item">Mannheim Business School</li>
+													<li class="meta-item">Frankfurt University of Applied Sciences</li>
+													<li class="meta-item">Heidelberg University Faculty of Philosophy and History</li>
+												</ul>
+											</li>
+										</ul>
+									</section>
+									<section class="social-links">
+										<ul class="inline">
+											<li class="contact-me" title="Send me a message"><a class="social-link" title="Send me a message" href="mailto:alexander.schmidt@edvas.de"><span class="SVGInline"><svg class="SVGInline-svg" viewBox="0 2 37 30" xmlns="http://www.w3.org/2000/svg"><path d="M17.9864841,17.7442683 L35.9560572,4.24918119 C35.9560572,2.99963608 34.9577476,2 33.7098606,2 L2.26310764,2 C1.01522062,2 0.0169109976,2.99963608 0.0169109976,4.24918119 L17.9864841,17.7442683 Z M17.9864841,21.7844641 L0.0169109976,8.28937702 L0.0777647581,29.7508188 C0.0777647581,31.0003639 1.07607438,32 2.3239614,32 L33.7707144,32 C35.0186014,32 36.016911,31.0003639 36.016911,29.7508188 L35.9560572,8.28937702 L17.9864841,21.7844641 Z"></path></svg></span></a></li>
+											<li><a class="social-link" title="Visit me on Twitter" href="https://www.twitter.com/Bloggerschmidt" target="_blank" rel="noopener noreferrer"><span class="SVGInline"><svg class="SVGInline-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><path d="M1000 500c0 277-223 500-500 500s-500-223-500-500 223-500 500-500 500 223 500 500zm-125-183c-25 11-53 18-82 22 30-17 51-45 61-79-28 17-57 28-89 35-25-28-62-45-103-45-78 0-141 63-141 142 0 10 1 22 3 32-118-5-223-62-294-149-11 22-18 46-18 72 0 50 24 93 62 118-23 0-45-7-64-18v2c0 69 49 126 114 140-12 3-24 4-37 4-9 0-19-1-27-2 18 57 71 95 132 96-48 38-108 65-176 65-11 0-23-1-33-2 62 40 138 62 217 62 262 0 404-216 404-404v-18c28-19 51-45 71-73z"></path></svg></span></a></li>
+											<li><a class="social-link" title="Visit me on GitHub" href="https://github.com/Bloggerschmidt" target="_blank" rel="noopener noreferrer"><span class="SVGInline"><svg class="SVGInline-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><path d="M1000 508c0 232-160 429-375 485v-131c0-41-10-98-52-131 134-20 239-99 239-223 0-51-21-102-58-144 11-47 17-105-4-148-53 5-106 32-145 56-33-8-67-14-105-14s-73 6-106 14c-39-24-91-51-144-56-21 43-16 101-5 148-37 42-57 93-57 144 0 124 105 203 239 223-20 15-32 36-40 57-105 2-189-81-190-81-5-4-12-5-16-2-6 3-9 10-7 16 2 5 44 124 201 172v100c-215-56-375-253-375-485 0-275 223-500 500-500 275 0 500 225 500 500z"></path></svg></span></a></li>
+											<li><a class="social-link" title="Visit me on Xing" href="https://www.xing.com/profile/Alexander_Schmidt297" target="_blank" rel="noopener noreferrer"><span class="SVGInline"><svg class="SVGInline-svg" viewBox="0 0 1000 1000" version="1.1" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink"><path d="M500,0 C776.142375,0 1000,223.857625 1000,500 C1000,776.142375 776.142375,1000 500,1000 C223.857625,1000 0,776.142375 0,500 C0,223.857625 223.857625,0 500,0 Z M453,435 L382,310 C373.715942,296.802868 364.03439,290 353,290 L247,290 C241.052518,290 236.604237,292.354839 234,297 C230.324311,301.250896 230.324311,306.483871 234,313 L305,435 C305.160089,435.738351 305.160089,436 305,436 L194,632 C191.336442,637.992831 191.336442,643.225806 194,648 C196.569713,652.645161 201.017993,655 207,655 L312,655 C323.476539,655 332.896427,648.458781 341,635 C412.965476,507.168459 450.383364,440.448029 453,435 Z M807,154 C803.930518,150.094619 799.475027,148 793,148 L687,148 C675.507526,148 666.072368,154.545684 659,168 C508.819725,433.130011 431.241755,570.589382 426,580 L575,853 C581.942204,866.454316 591.639451,873 604,873 L709,873 C715.344863,873 719.800355,870.643554 722,866 C725.566284,861.217768 725.566284,855.981221 722,850 L575,580 L807,171 C809.696449,164.495125 809.696449,158.99675 807,154 Z"></path></svg></span></a></li>
+											<li><a class="social-link" title="Visit me on Stack Overflow" href="https://stackoverflow.com/users/4243279/alexander-schmidt" target="_blank" rel="noopener noreferrer"><span class="SVGInline"><svg class="SVGInline-svg" viewBox="0 0 1000 1000" version="1.1" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink"><path d="M500,0 C776.142375,0 1000,223.857625 1000,500 C1000,776.142375 776.142375,1000 500,1000 C223.857625,1000 0,776.142375 0,500 C0,223.857625 223.857625,0 500,0 Z M251,863 L724,863 L724,562 L667,562 L667,804 L304,804 L306,562 L251,561 L251,863 Z M340,704 L340,764 L624,764 L624,704 L340,704 Z M341,657 L626,684 L632,622 L347,595 L341,657 Z M356,531 L631,609 L648,550 L373,472 L356,531 Z M407,385 L651,533 L684,480 L439,332 L407,385 Z M529,237 L695,470 L746,434 L579,201 L529,237 Z M711,148 L758,430 L819,420 L772,138 L711,148 Z"></path></svg></span></a></li>
+										</ul>
+									</section>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</main>
+		</div>
+	</div>
+	<script src="particles.min.js"></script>
+	<script>particlesJS.load('particles', 'particles.json', function () {});</script>
+</body>
+
+</html>
